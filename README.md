@@ -19,7 +19,35 @@ Write your own steps
 
 ## PROGRAM
 
-Include your code here
+```
+admin.py:
+
+from django.contrib import admin
+from .models import Studentdetail,StudentdetailAdmin
+
+
+admin.site.register(Studentdetail,StudentdetailAdmin)
+# Register your models here.
+
+
+models.py:
+
+from django.db import models
+from django.contrib import  admin
+
+
+#Create your models here.
+#Create your models here.
+# Create your models here.
+class Studentdetail(models.Model):
+    referencenumber = models.CharField(max_length=10, primary_key=True , help_text="your reference no ")
+    name= models.CharField(max_length=100)
+    department = models.CharField(max_length=200)
+    age=models.IntegerField()
+    email=models.EmailField()
+class StudentdetailAdmin(admin.ModelAdmin):
+    list_display = ('referencenumber', 'name', 'department', 'age', 'email')
+```
 
 ## OUTPUT
 
